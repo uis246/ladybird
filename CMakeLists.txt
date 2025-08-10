@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.25)
+cmake_minimum_required(VERSION 3.27)
 
 if (VCPKG_TARGET_ANDROID)
     # If we are building for Android, we must load vcpkg_android.cmake before the project() declaration.
