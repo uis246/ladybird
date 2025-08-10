@@ -28,25 +28,25 @@ ANGLEInstancedArrays::ANGLEInstancedArrays(JS::Realm& realm, GC::Ref<WebGLRender
     : PlatformObject(realm)
     , m_context(context)
 {
-    m_context->context().request_extension("GL_ANGLE_instanced_arrays");
+    m_context->context().request_extension("GL_EXT_instanced_arrays");
 }
 
 void ANGLEInstancedArrays::vertex_attrib_divisor_angle(GLuint index, GLuint divisor)
 {
     m_context->context().make_current();
-    glVertexAttribDivisorANGLE(index, divisor);
+    glVertexAttribDivisorEXT(index, divisor);
 }
 
 void ANGLEInstancedArrays::draw_arrays_instanced_angle(GLenum mode, GLint first, GLsizei count, GLsizei primcount)
 {
     m_context->context().make_current();
-    glDrawArraysInstancedANGLE(mode, first, count, primcount);
+    glDrawArraysInstancedEXT(mode, first, count, primcount);
 }
 
 void ANGLEInstancedArrays::draw_elements_instanced_angle(GLenum mode, GLsizei count, GLenum type, GLintptr offset, GLsizei primcount)
 {
     m_context->context().make_current();
-    glDrawElementsInstancedANGLE(mode, count, type, reinterpret_cast<void*>(offset), primcount);
+    glDrawElementsInstancedEXT(mode, count, type, reinterpret_cast<void*>(offset), primcount);
 }
 
 void ANGLEInstancedArrays::initialize(JS::Realm& realm)
